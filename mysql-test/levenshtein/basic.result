@@ -1,0 +1,102 @@
+SELECT LEVENSHTEIN('', '');
+LEVENSHTEIN('', '')
+0
+SELECT LEVENSHTEIN('', 'abc');
+LEVENSHTEIN('', 'abc')
+3
+SELECT LEVENSHTEIN('kitten', 'sitting');
+LEVENSHTEIN('kitten', 'sitting')
+3
+SELECT LEVENSHTEIN('flaw', 'lawn');
+LEVENSHTEIN('flaw', 'lawn')
+2
+SELECT LEVENSHTEIN(_utf8mb4'café', _utf8mb4'cafe');
+LEVENSHTEIN(_utf8mb4'café', _utf8mb4'cafe')
+1
+SELECT LEVENSHTEIN(_utf8mb4'😀', _utf8mb4'😃');
+LEVENSHTEIN(_utf8mb4'😀', _utf8mb4'😃')
+1
+SELECT LEVENSHTEIN(NULL, 'abc');
+LEVENSHTEIN(NULL, 'abc')
+NULL
+SELECT ROUND(LEVENSHTEIN_RATIO('', ''), 6);
+ROUND(LEVENSHTEIN_RATIO('', ''), 6)
+1.000000
+SELECT ROUND(LEVENSHTEIN_RATIO('', 'abc'), 6);
+ROUND(LEVENSHTEIN_RATIO('', 'abc'), 6)
+0.000000
+SELECT ROUND(LEVENSHTEIN_RATIO('kitten', 'sitting'), 6);
+ROUND(LEVENSHTEIN_RATIO('kitten', 'sitting'), 6)
+0.571429
+SELECT ROUND(LEVENSHTEIN_RATIO('same', 'same'), 6);
+ROUND(LEVENSHTEIN_RATIO('same', 'same'), 6)
+1.000000
+SELECT LEVENSHTEIN_RATIO(NULL, 'abc');
+LEVENSHTEIN_RATIO(NULL, 'abc')
+NULL
+SELECT LEVENSHTEIN_WITH_LIMIT('kitten', 'sitting', 3);
+LEVENSHTEIN_WITH_LIMIT('kitten', 'sitting', 3)
+3
+SELECT LEVENSHTEIN_WITH_LIMIT('kitten', 'sitting', 2);
+LEVENSHTEIN_WITH_LIMIT('kitten', 'sitting', 2)
+3
+SELECT LEVENSHTEIN_WITH_LIMIT('', 'abc', 3);
+LEVENSHTEIN_WITH_LIMIT('', 'abc', 3)
+3
+SELECT LEVENSHTEIN_WITH_LIMIT('', 'abc', 2);
+LEVENSHTEIN_WITH_LIMIT('', 'abc', 2)
+3
+SELECT LEVENSHTEIN_WITH_LIMIT('abc', 'abc', -1);
+LEVENSHTEIN_WITH_LIMIT('abc', 'abc', -1)
+NULL
+SELECT DAMERAU_LEVENSHTEIN('form', 'from');
+DAMERAU_LEVENSHTEIN('form', 'from')
+1
+SELECT LEVENSHTEIN('form', 'from');
+LEVENSHTEIN('form', 'from')
+2
+SELECT ROUND(DAMERAU_LEVENSHTEIN_RATIO('form', 'from'), 6);
+ROUND(DAMERAU_LEVENSHTEIN_RATIO('form', 'from'), 6)
+0.750000
+SELECT DAMERAU_LEVENSHTEIN(_utf8mb4'😀a', _utf8mb4'a😀');
+DAMERAU_LEVENSHTEIN(_utf8mb4'😀a', _utf8mb4'a😀')
+1
+SELECT LEVENSHTEIN_SIMILAR('kitten', 'sitting', 0.5);
+LEVENSHTEIN_SIMILAR('kitten', 'sitting', 0.5)
+1
+SELECT LEVENSHTEIN_SIMILAR('kitten', 'sitting', 0.6);
+LEVENSHTEIN_SIMILAR('kitten', 'sitting', 0.6)
+0
+SELECT LEVENSHTEIN_SIMILAR('', '', 1.0);
+LEVENSHTEIN_SIMILAR('', '', 1.0)
+1
+SELECT LEVENSHTEIN_SIMILAR('a', 'b', 1.1);
+LEVENSHTEIN_SIMILAR('a', 'b', 1.1)
+NULL
+SELECT LEVENSHTEIN_WEIGHTED('abc', 'axc', 1, 1, 3);
+LEVENSHTEIN_WEIGHTED('abc', 'axc', 1, 1, 3)
+2
+SELECT LEVENSHTEIN_WEIGHTED('abc', 'abxc', 2, 1, 3);
+LEVENSHTEIN_WEIGHTED('abc', 'abxc', 2, 1, 3)
+2
+SELECT LEVENSHTEIN_WEIGHTED('abc', 'axc', 1, 1, -1);
+LEVENSHTEIN_WEIGHTED('abc', 'axc', 1, 1, -1)
+NULL
+SELECT LEVENSHTEIN_EDITOPS('', '');
+LEVENSHTEIN_EDITOPS('', '')
+[]
+SELECT LEVENSHTEIN_EDITOPS('abc', 'axc');
+LEVENSHTEIN_EDITOPS('abc', 'axc')
+[{"op":"replace","src_pos":1,"dst_pos":1}]
+SELECT LEVENSHTEIN_EDITOPS('abc', 'abxc');
+LEVENSHTEIN_EDITOPS('abc', 'abxc')
+[{"op":"insert","src_pos":2,"dst_pos":2}]
+SELECT LEVENSHTEIN_EDITOPS(NULL, 'abc');
+LEVENSHTEIN_EDITOPS(NULL, 'abc')
+NULL
+SELECT LEVENSHTEIN('one');
+ERROR 42000: Incorrect parameter count in the call to native function 'LEVENSHTEIN'
+SELECT LEVENSHTEIN_RATIO('one', 'two', 'three');
+ERROR 42000: Incorrect parameter count in the call to native function 'LEVENSHTEIN_RATIO'
+SELECT LEVENSHTEIN_WEIGHTED('one', 'two', 1);
+ERROR 42000: Incorrect parameter count in the call to native function 'LEVENSHTEIN_WEIGHTED'
