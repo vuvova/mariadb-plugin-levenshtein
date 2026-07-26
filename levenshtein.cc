@@ -917,7 +917,7 @@ maria_declare_plugin(levenshtein)
   MariaDB_FUNCTION_PLUGIN,
   Item_func_levenshtein_weighted::plugin_descriptor(),
   "levenshtein_weighted",
-  "MariaDB",
+  "lefred",
   "Function LEVENSHTEIN_WEIGHTED()",
   PLUGIN_LICENSE_GPL,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
