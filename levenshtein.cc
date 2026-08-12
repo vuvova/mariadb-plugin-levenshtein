@@ -392,7 +392,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein")};
     return name;
   }
 
@@ -439,7 +439,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein_ratio"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein_ratio")};
     return name;
   }
 
@@ -486,7 +486,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein_with_limit"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein_with_limit")};
     return name;
   }
 
@@ -524,7 +524,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "damerau_levenshtein"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("damerau_levenshtein")};
     return name;
   }
 
@@ -568,7 +568,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "damerau_levenshtein_ratio"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("damerau_levenshtein_ratio")};
     return name;
   }
 
@@ -617,7 +617,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein_similar"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein_similar")};
     return name;
   }
 
@@ -669,7 +669,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein_weighted"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein_weighted")};
     return name;
   }
 
@@ -815,7 +815,7 @@ public:
 
   LEX_CSTRING func_name_cstring() const override
   {
-    static LEX_CSTRING name= "levenshtein_editops"_LEX_CSTRING;
+    static LEX_CSTRING name= {STRING_WITH_LEN("levenshtein_editops")};
     return name;
   }
 
@@ -839,7 +839,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein",
   "MariaDB",
   "Function LEVENSHTEIN()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr,
   nullptr,
   0x0100,
@@ -854,7 +854,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein_ratio",
   "MariaDB",
   "Function LEVENSHTEIN_RATIO()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr,
   nullptr,
   0x0100,
@@ -869,7 +869,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein_with_limit",
   "MariaDB",
   "Function LEVENSHTEIN_WITH_LIMIT()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 },
@@ -879,7 +879,7 @@ maria_declare_plugin(levenshtein)
   "damerau_levenshtein",
   "MariaDB",
   "Function DAMERAU_LEVENSHTEIN()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 },
@@ -889,7 +889,7 @@ maria_declare_plugin(levenshtein)
   "damerau_levenshtein_ratio",
   "MariaDB",
   "Function DAMERAU_LEVENSHTEIN_RATIO()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 },
@@ -899,7 +899,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein_similar",
   "MariaDB",
   "Function LEVENSHTEIN_SIMILAR()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 },
@@ -909,7 +909,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein_editops",
   "MariaDB",
   "Function LEVENSHTEIN_EDITOPS()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 },
@@ -919,7 +919,7 @@ maria_declare_plugin(levenshtein)
   "levenshtein_weighted",
   "lefred",
   "Function LEVENSHTEIN_WEIGHTED()",
-  PLUGIN_LICENSE_GPL,
+  PLUGIN_LICENSE,
   nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
   MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
 }

@@ -14,5 +14,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1335  USA */
 
-MYSQL_ADD_PLUGIN(levenshtein levenshtein.cc MODULE_ONLY
-                 RECOMPILE_FOR_EMBEDDED)
+cmake_minimum_required(VERSION 3.12)
+find_package(mariadb-plugin REQUIRED)
+MARIADB_ADD_PLUGIN(levenshtein levenshtein.cc MODULE_ONLY
+                 RECOMPILE_FOR_EMBEDDED
+                 AUTHOR lefred
+                 VERSION 1.0
+                 DESCRIPTION "Eight functions implementing levenstein distance"
+                 )
