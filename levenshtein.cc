@@ -920,7 +920,7 @@ maria_declare_plugin(levenshtein)
   "lefred",
   "Function LEVENSHTEIN_WEIGHTED()",
   PLUGIN_LICENSE_GPL,
-  nullptr, nullptr, 0x0100, nullptr, nullptr, "1.0",
-  MariaDB_PLUGIN_MATURITY_EXPERIMENTAL
+  nullptr, nullptr, 0x0100, nullptr, nullptr, "0.2.0",
+  MariaDB_PLUGIN_MATURITY_BETA
 }
 maria_declare_plugin_end;
