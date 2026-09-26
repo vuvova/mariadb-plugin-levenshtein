@@ -17,4 +17,4 @@ jobs:
   build:
     uses: vuvova/mariadb-plugin-ci/.github/workflows/build-plugin-new.yml@main
     with:
-      mariadb_versions: 74621
+      mariadb_versions: 74630
