@@ -15,18 +15,6 @@ permissions:
 
 jobs:
   build:
-    uses: lefred/mariadb-plugin-ci/.github/workflows/build-plugin.yml@main
+    uses: vuvova/mariadb-plugin-ci/.github/workflows/build-plugin-new.yml@main
     with:
-      plugin_name: levenshtein
-      plugin_directory: levenshtein
-      build_target: levenshtein
-      plugin_library: levenshtein.so
-
-      sdk_image: quay.io/lefred14/mariadb-plugin-build
-      mariadb_versions: |
-          13.0.2
-          13.1.1
-          
-      cmake_options: -DPLUGIN_DATE_EXTRA=DYNAMIC
-      test_suite: levenshtein
-      run_tests: false
+      mariadb_versions: 74621
