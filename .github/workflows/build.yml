@@ -18,3 +18,4 @@ jobs:
     uses: vuvova/mariadb-plugin-ci/.github/workflows/build-plugin-new.yml@main
     with:
       mariadb_versions: 74630
+      test_suites: levenshtein
